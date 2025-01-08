@@ -6,7 +6,7 @@ import psycopg2
 import os
 
 # Exemplo de conexão com o banco de dados
-DATABASE_URL = "aws-0-us-east-1.pooler.supabase.com"
+DATABASE_URL = os.getenv("CUSTOM")
 SECRET_KEY = os.getenv("SECRET_KEY", "defaultsecretkey")  # Define um valor padrão para evitar erros
 
 
