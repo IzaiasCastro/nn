@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 import psycopg2
 import os
 
-DATABASE_URL = os.getenv("postgresql://postgres:U21qgLzpZObgYlzu@db.lriqofxiudukhjgggtpf.supabase.co:5432/postgres")
+DATABASE_URL = db.lriqofxiudukhjgggtpf.supabase.co
 
 def get_db_connection():
     """Retorna uma conexão ao banco de dados Supabase."""
