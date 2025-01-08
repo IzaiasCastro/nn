@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 import psycopg2
 import os
 
-DATABASE_URL = postgres://postgres.lriqofxiudukhjgggtpf:U21qgLzpZObgYlzu@aws-0-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require&supa=base-pooler.x
+DATABASE_URL = "postgres://postgres.lriqofxiudukhjgggtpf:U21qgLzpZObgYlzu@aws-0-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require&supa=base-pooler.x"
 
 def get_db_connection():
     """Retorna uma conexão ao banco de dados Supabase."""
