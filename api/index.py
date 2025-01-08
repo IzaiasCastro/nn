@@ -27,26 +27,9 @@ def allowed_file(filename):
     """Verifica se o arquivo possui uma extensão permitida."""
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-# Configurações do banco de dados
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '06071998'
-app.config['MYSQL_DB'] = 'apartamentos_db'
-
 # Chave secreta para sessões
 app.secret_key = 'secretkey'
 
-# Configuração direta do pymysql para conexões
-def get_db_connection():
-    """Retorna uma conexão ao banco de dados."""
-    return pymysql.connect(
-        host=app.config['MYSQL_HOST'],
-        user=app.config['MYSQL_USER'],
-        password=app.config['MYSQL_PASSWORD'],
-        db=app.config['MYSQL_DB'],
-        charset='utf8mb4',
-        cursorclass=pymysql.cursors.DictCursor
-    )
 
 @app.route('/')
 def index():
