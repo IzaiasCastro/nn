@@ -5,7 +5,10 @@ from werkzeug.utils import secure_filename
 import psycopg2
 import os
 
-DATABASE_URL = "db.lriqofxiudukhjgggtpf.supabase.co"
+# Exemplo de conexão com o banco de dados
+DATABASE_URL = os.getenv("DATABASE_URL")
+SECRET_KEY = os.getenv("SECRET_KEY", "defaultsecretkey")  # Define um valor padrão para evitar erros
+
 
 def get_db_connection():
     """Retorna uma conexão ao banco de dados Supabase."""
