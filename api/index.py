@@ -14,15 +14,6 @@ def get_db_connection():
 app = Flask(__name__)
 
 
-# Configurações de upload
-# UPLOAD_FOLDER = ''
-# ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-
-# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-# Cria o diretório de upload, caso não exista
-# os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
 def allowed_file(filename):
     """Verifica se o arquivo possui uma extensão permitida."""
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -318,19 +309,7 @@ def upload():
     if 'user_id' not in session or session['user_type'] != 'dono':
         return "Usuário não autorizado", 403
 
-    if 'file' not in request.files:
-        return "Nenhum arquivo enviado", 400
-
-    file = request.files['file']
-
-    if file.filename == '':
-        return "Nenhum arquivo selecionado", 400
-
-    # if file and allowed_file(file.filename):
-    #     filename = secure_filename(file.filename)
-    #     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    #     file.save(file_path)
-    #     return {"file_path": file_path}, 200
+    
 
     return "Arquivo não permitido", 400
     
