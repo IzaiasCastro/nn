@@ -1,11 +1,15 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, session
-import pymysql
 import bcrypt
 from werkzeug.utils import secure_filename
+import psycopg2
+import os
 
-# Configura pymysql como substituto para MySQLdb
-pymysql.install_as_MySQLdb()
+DATABASE_URL = os.getenv("postgresql://postgres:[YOUR-PASSWORD]@db.lriqofxiudukhjgggtpf.supabase.co:5432/postgres")
+
+def get_db_connection():
+    """Retorna uma conexão ao banco de dados Supabase."""
+    return psycopg2.connect(DATABASE_URL)
 
 app = Flask(__name__)
 
